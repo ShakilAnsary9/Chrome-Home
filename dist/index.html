@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="font-space">
+    <div
+      class="relative justify-center items-center h-screen hero-section bg-gray-900"
+    >
+      <div class="absolute h-full w-full flex justify-center items-center z-10">
+        <div
+          class="relative container flex flex-col justify-center items-center"
+        >
+          <!-- Clock Here -->
+          <div class="w-80 text-sky-400" id="clock">
+            <span id="hour"></span>:<span id="minute"></span>
+          </div>
+          <!-- Search box -->
+          <div class="relative w-1/2">
+            <input
+              class="search w-full focus:outline-none active:outline-none hover:outline-none text-white bg-slate-800 pl-14 rounded-full h-14"
+              id="textbox"
+              type="text"
+              placeholder="Search on Google"
+            />
+            <img
+              class="absolute top-0 w-8 pt-3 ml-3"
+              src="../assets/images/search.png"
+              alt=""
+            />
+            <a
+              class="absolute top-2 right-0 py-2 px-5 text-white rounded-full mr-2 bg-green-600"
+              id="googleLink"
+              href="notrequired"
+              onclick="this.href='http://www.google.com/search?q=' + encodeURIComponent(document.getElementById('textbox').value);"
+            >
+              <span>Search</span>
+            </a>
+            <!-- Favourite Web -->
+            <div class="flex flex-row gap-10 my-14">
+              <div
+                class="app w-24 h-24 flex justify-center items-center bg-slate-800 rounded-2xl"
+              >
+                <img
+                  class="w-1/2"
+                  src="../assets/images/facebook.png"
+                  alt="facebook"
+                />
+              </div>
+              <div
+                class="app w-24 h-24 flex justify-center items-center bg-slate-800 rounded-2xl"
+              >
+                <img
+                  class="w-1/2"
+                  src="../assets/images/instagram.png"
+                  alt="facebook"
+                />
+              </div>
+              <div
+                class="app w-24 h-24 flex justify-center items-center bg-slate-800 rounded-2xl"
+              >
+                <img
+                  class="w-1/2"
+                  src="../assets/images/youtube.png"
+                  alt="facebook"
+                />
+              </div>
+              <div
+                class="app w-24 h-24 flex justify-center items-center bg-slate-800 rounded-2xl"
+              >
+                <img
+                  class="w-1/2"
+                  src="../assets/images/whatsapp.png"
+                  alt="facebook"
+                />
+              </div>
+              <div
+                class="app w-24 h-24 flex justify-center items-center bg-slate-800 rounded-2xl"
+              >
+                <img
+                  class="w-1/2"
+                  src="../assets/images/github.png"
+                  alt="facebook"
+                />
+              </div>
+              <div
+                class="app w-24 h-24 flex justify-center items-center bg-slate-800 rounded-2xl"
+              >
+                <img
+                  class="w-1/2"
+                  src="../assets/images/gmail.png"
+                  alt="facebook"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
