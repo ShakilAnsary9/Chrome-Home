@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+    <link rel="stylesheet" href="" />
   </head>
   <body class="font-space">
     <div
@@ -15,7 +20,7 @@
           class="relative container flex flex-col justify-center items-center"
         >
           <!-- Clock Here -->
-          <div class="w-80 text-sky-400" id="clock">
+          <div class="w-80 mb-20 text-sky-400" id="clock">
             <span id="hour"></span>:<span id="minute"></span>
           </div>
           <!-- Search box -->
@@ -25,6 +30,7 @@
               id="textbox"
               type="text"
               placeholder="Search on Google"
+              onkeydown="if (event.key === 'Enter') searchGoogle(event);"
             />
             <img
               class="absolute top-0 w-8 pt-3 ml-3"
@@ -35,7 +41,7 @@
               class="absolute top-2 right-0 py-2 px-5 text-white rounded-full mr-2 bg-green-600"
               id="googleLink"
               href="notrequired"
-              onclick="this.href='http://www.google.com/search?q=' + encodeURIComponent(document.getElementById('textbox').value);"
+              onclick="searchGoogle(event);"
             >
               <span>Search</span>
             </a>
@@ -108,11 +114,87 @@
                 </div>
               </a>
             </div>
+            <div class="info flex flex-row gap-5 text-white">
+              <div
+                class="profile flex flex-row w-1/2 mt-10 py-5 px-5 bg-slate-800 rounded-2xl shadow"
+              >
+                <div class="my-img h-20 w-20 rounded-2xl">
+                  <img
+                    class="h-100 w-100 rounded-xl bg-cover border-solid border-indigo-500 border-2"
+                    src="../assets/images/shakil-light.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="profile ml-8">
+                  <h3 class="text-2xl font-medium">Shakil Ansary</h3>
+                  <p class="text-slate-400">Front-end Developer</p>
+                  <p class="font-medium text-slate-400">Netsqure</p>
+                </div>
+              </div>
+              <!-- Music Player -->
+              <div
+                class="profile flex flex-row w-1/2 mt-10 py-5 px-5 bg-slate-800 rounded-2xl shadow"
+              >
+                <div class="song-cover my-img h-20 w-20 rounded-2xl">
+                  <img
+                    id="song-image"
+                    class="h-20 w-20 rounded-xl object-cover border-solid border-indigo-500 border-2"
+                    src="../assets/music-cover/Alote-Chol.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="song-info w-60 ml-3">
+                  <div class="song-details flex justify-between text-sm">
+                    <p id="song-name">Alote Chol</p>
+                    <p id="song-artist">Debayan Banerjee</p>
+                  </div>
+                  <audio id="audio" preload="metadata"></audio>
+                  <div id="progress-bar">
+                    <div id="current-progress"></div>
+                  </div>
+                  <div class="time-container">
+                    <span id="current-time">0:00</span>
+                    <span id="max-duration">0:00</span>
+                  </div>
+                  <div
+                    class="relative player-options mt-2 flex justify-between"
+                  >
+                    <div class="flex">
+                      <button id="shuffle">
+                        <i class="fi fi-rr-shuffle text-slate-400"></i>
+                      </button>
+                      <i id="prev" class="fi fi-rr-angle-left ml-6"></i>
+                    </div>
+                    <button
+                      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-5 bg-violet-600 h-16 w-16 rounded-full text-2xl text-white"
+                      id="play"
+                    >
+                      <i class="fi fi-rr-play mt-5"></i>
+                    </button>
+                    <button
+                      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-5 h-16 w-16 bg-violet-600 rounded-full justify-center items-center text-2xl text-white hide"
+                      id="pause"
+                    >
+                      <i class="fi fi-rr-pause mt-1"></i>
+                    </button>
+
+                    <div class="flex">
+                      <i id="next" class="fi fi-rr-angle-right mr-6"></i>
+                      <button id="repeat">
+                        <i class="fi fi-rr-arrows-repeat-1 text-slate-400"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <script src="./script.js"></script>
+    <script src="./player.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/amplitudejs@5.2.0/dist/amplitude.js"></script>
   </body>
 </html>
