@@ -47,7 +47,7 @@
             </a>
             <!-- Favourite Web -->
             <div class="flex justify-between my-14">
-              <a href="https://facebook.com">
+              <a target="_blank" href="https://facebook.com">
                 <div
                   class="app w-24 h-24 flex justify-center items-center bg-slate-800 rounded-2xl"
                 >
@@ -58,7 +58,7 @@
                   />
                 </div>
               </a>
-              <a href="https://instagram.com">
+              <a target="_blank" href="https://instagram.com">
                 <div
                   class="app w-24 h-24 flex justify-center items-center bg-slate-800 rounded-2xl"
                 >
@@ -69,7 +69,7 @@
                   />
                 </div>
               </a>
-              <a href="https://youtube.com">
+              <a target="_blank" href="https://youtube.com">
                 <div
                   class="app w-24 h-24 flex justify-center items-center bg-slate-800 rounded-2xl"
                 >
@@ -80,7 +80,7 @@
                   />
                 </div>
               </a>
-              <a href="https://web.whatsapp.com">
+              <a target="_blank" href="https://web.whatsapp.com">
                 <div
                   class="app w-24 h-24 flex justify-center items-center bg-slate-800 rounded-2xl"
                 >
@@ -91,7 +91,7 @@
                   />
                 </div>
               </a>
-              <a href="https://github.com">
+              <a target="_blank" href="https://github.com">
                 <div
                   class="app w-24 h-24 flex justify-center items-center bg-slate-800 rounded-2xl"
                 >
@@ -102,7 +102,7 @@
                   />
                 </div>
               </a>
-              <a href="https://gmail.com">
+              <a target="_blank" href="https://gmail.com">
                 <div
                   class="app w-24 h-24 flex justify-center items-center bg-slate-800 rounded-2xl"
                 >
@@ -115,25 +115,34 @@
               </a>
             </div>
             <div class="info flex flex-row gap-5 text-white">
+              <!-- To-Do List -->
               <div
                 class="profile flex flex-row w-1/2 mt-10 py-5 px-5 bg-slate-800 rounded-2xl shadow"
               >
-                <div class="my-img h-20 w-20 rounded-2xl">
-                  <img
-                    class="h-100 w-100 rounded-xl bg-cover border-solid border-indigo-500 border-2"
-                    src="../assets/images/shakil-light.jpg"
-                    alt=""
-                  />
-                </div>
-                <div class="profile ml-8">
-                  <h3 class="text-2xl font-medium">Shakil Ansary</h3>
-                  <p class="text-slate-400">Front-end Developer</p>
-                  <p class="font-medium text-slate-400">Netsqure</p>
+                <div class="absolute todo-container">
+                  <h2 class="text-lg font-medium text-white mb-3">
+                    Shakil's Todo List
+                  </h2>
+                  <div class="add-todo flex justify-between">
+                    <input
+                      class="placeholder:text-slate-400 text-white hover:outline-none focus:outline-none active:outline-none bg-slate-700 border-slate-700"
+                      type="text"
+                      id="new-todo"
+                      placeholder="Add a new todo"
+                    />
+                    <button
+                      class="group flex items-center rounded-md bg-blue-500 text-white text-sm font-medium pl-2 pr-3 py-2 ml-3 cursor-pointer shadow-sm hover:bg-blue-400"
+                      onclick="addTodo()"
+                    >
+                      Add Todo
+                    </button>
+                  </div>
+                  <div class="todo-list-container" id="todo-list"></div>
                 </div>
               </div>
               <!-- Music Player -->
               <div
-                class="profile flex flex-row w-1/2 mt-10 py-5 px-5 bg-slate-800 rounded-2xl shadow"
+                class="profile mplayer flex flex-row w-1/2 mt-10 py-5 px-5 bg-slate-800 rounded-2xl shadow"
               >
                 <div class="song-cover my-img h-20 w-20 rounded-2xl">
                   <img
@@ -145,8 +154,8 @@
                 </div>
                 <div class="song-info w-60 ml-3">
                   <div class="song-details flex justify-between text-sm">
-                    <p id="song-name">Alote Chol</p>
-                    <p id="song-artist">Debayan Banerjee</p>
+                    <p id="song-name"></p>
+                    <p id="song-artist"></p>
                   </div>
                   <audio id="audio" preload="metadata"></audio>
                   <div id="progress-bar">
@@ -166,16 +175,16 @@
                       <i id="prev" class="fi fi-rr-angle-left ml-6"></i>
                     </div>
                     <button
-                      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-5 bg-violet-600 h-16 w-16 rounded-full text-2xl text-white"
+                      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-5 bg-violet-600 h-16 w-16 rounded-full text-2xl leading-4 text-white"
                       id="play"
                     >
-                      <i class="fi fi-rr-play mt-5"></i>
+                      <i class="fi fi-rr-play"></i>
                     </button>
                     <button
-                      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-5 h-16 w-16 bg-violet-600 rounded-full justify-center items-center text-2xl text-white hide"
+                      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-5 h-16 w-16 bg-violet-600 rounded-full justify-center items-center text-2xl leading-4 text-white hide"
                       id="pause"
                     >
-                      <i class="fi fi-rr-pause mt-1"></i>
+                      <i class="fi fi-rr-pause"></i>
                     </button>
 
                     <div class="flex">
@@ -195,6 +204,7 @@
 
     <script src="./script.js"></script>
     <script src="./player.js"></script>
+    <script src="./to-do.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/amplitudejs@5.2.0/dist/amplitude.js"></script>
   </body>
 </html>

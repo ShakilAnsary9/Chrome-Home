@@ -31,28 +31,16 @@ const songsList = [
     image: "../assets/music-cover/Alote-Chol.jpg",
   },
   {
-    name: "Where We Started",
-    link: "where-we-started.mp3",
-    artist: "Lost Sky",
-    image: "where-we-started.jpg",
+    name: "Avijog",
+    link: "../assets/music/Avijog.mp3",
+    artist: "Tanveer Evan",
+    image: "../assets/music-cover/Ovijog.jpg",
   },
   {
-    name: "On & On",
-    link: "on-on.mp3",
-    artist: "Cartoon",
-    image: "on-on.jpg",
-  },
-  {
-    name: "Throne",
-    link: "throne.mp3",
-    artist: "Rival",
-    image: "throne.jpg",
-  },
-  {
-    name: "Need You Now",
-    link: "need-you-now.mp3",
-    artist: "Venemy",
-    image: "need-you-now.jpg",
+    name: "Oviman",
+    link: "../assets/music/Oviman.mp3",
+    artist: "Tanveer Evan",
+    image: "../assets/music-cover/Oviman.jpg",
   },
 ];
 
@@ -107,9 +95,18 @@ const setSong = (arrayIndex) => {
 
 //play song
 const playAudio = () => {
-  audio.play();
-  pauseButton.classList.remove("hide");
-  playButton.classList.add("hide");
+  if (audio.src) {
+    audio.play();
+    pauseButton.classList.remove("hide");
+    playButton.classList.add("hide");
+  } else {
+    // If audio source is not set, set it to the first song and then play.
+    index = 0;
+    setSong(index);
+    audio.play();
+    pauseButton.classList.remove("hide");
+    playButton.classList.add("hide");
+  }
 };
 
 //repeat button
